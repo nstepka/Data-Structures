@@ -109,7 +109,7 @@ public class AStack  //LStack
             {
                 if (flag == 2)
                 {
-                    System.out.println("Enter an integer to push it into the Stack:");
+                    System.out.println("Enter characters to push it into the Stack:");
                     arrStack.Push(new Scanner(System.in).nextLine());
                     System.out.println("The items in the Stack  after pushing are:");
                     arrStack.Print();
