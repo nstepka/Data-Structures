@@ -6,7 +6,6 @@ public class AStack  //LStack
     private int top;
     private int size;
 
-
     public AStack(int Size)// public LStack()
     {
         arr = new LinkedList<String>();
@@ -67,6 +66,7 @@ public class AStack  //LStack
             }
         }
     }
+    
     public boolean palindromeCheck(String string){
         int index = 0;
         int stringLength = string.length()-1;
@@ -117,7 +117,7 @@ public class AStack  //LStack
                 }
                 if(flag == 4)
                 {
-                    System.out.println("Enter a string to see if its a palindrome");
+                    System.out.println("Enter a string of characters to see if its a palindrome");
                     if(arrStack.palindromeCheck(new Scanner(System.in).nextLine())){
                         System.out.println("the word is a palindrome");
                     }
