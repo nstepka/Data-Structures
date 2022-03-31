@@ -84,7 +84,7 @@ public class AStack  //LStack
     {
         int num, flag;
         String p;
-        AStack arrStack = new AStack(10);
+        AStack arrStack = new AStack(5);
         Random rnd = new Random(100);
         for (int i = 0; i <= 4; i++)
         {
@@ -110,8 +110,7 @@ public class AStack  //LStack
                 if (flag == 2)
                 {
                     System.out.println("Enter an integer to push it into the Stack:");
-                    int toAdd = Integer.parseInt(new Scanner(System.in).nextLine());
-                    arrStack.Push(Integer.toString(toAdd));
+                    arrStack.Push(new Scanner(System.in).nextLine());
                     System.out.println("The items in the Stack  after pushing are:");
                     arrStack.Print();
 
@@ -133,3 +132,4 @@ public class AStack  //LStack
         System.out.println("End of testing. Goodbye!");
     }
 }
+
