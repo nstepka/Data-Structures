@@ -1,5 +1,5 @@
 import java.util.*;
-
+//PROFESSOR WANTS US TO USE THE LINKEDLIST WE USED IN CLASS NOT THE THE BUILT IN LINKEDLIST CLASS SO I NEED TO REWORK THIS
 public class AStack  //LStack
 {
     private LinkedList<String> arr;
