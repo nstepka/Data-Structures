@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class DoubleLinkedList
@@ -10,22 +9,6 @@ public class DoubleLinkedList
     {
         header = null;
         tail = null;
-    }
-
-    public void AppendToHead(int newItem)
-    {
-        Node newNode = new Node(newItem);
-        if (header == null)
-        {
-            header = newNode;
-            tail = newNode;
-        }
-        else
-        {
-            newNode.Flink = header;
-            header.Blink = newNode;
-            header = newNode;
-        }
     }
 
     public Node RemoveFromHead()
@@ -67,28 +50,7 @@ public class DoubleLinkedList
         }
     }
 
-    public Node RemoveFromTail()
-    {
-        Node x = tail;
-        if (tail != null)
-        {
-            if (header == tail)
-            {
-                header = null;
-                tail = null;
-            }
-            else
-            {
-                tail.Blink.Flink = null;
-                tail = tail.Blink;
-            }
-        }
-        else
-        {
-            System.out.println("the double lined list is empty");
-        }
-        return x;
-    }
+
 
     public Node Search(int key)
     {
