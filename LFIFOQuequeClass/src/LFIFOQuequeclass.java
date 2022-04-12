@@ -30,11 +30,14 @@ public class LFIFOQuequeclass {
             dLLQueue.enqueue(rnd.nextInt(101));
         }
         dLLQueue.Print();
-        System.out.println("hi");
+        System.out.println("dequeing");
         dLLQueue.dequeue();
         dLLQueue.Print();
         System.out.println("Enter a number to append");
         dLLQueue.enqueue(Integer.parseInt(new Scanner(System.in).nextLine()));
+        dLLQueue.Print();
+        System.out.println("removing a number");
+        dLLQueue.dequeue();
         dLLQueue.Print();
 
     }
