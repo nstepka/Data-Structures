@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class DoubleLinkedList
@@ -92,37 +93,6 @@ public class DoubleLinkedList
         }
     }
 
-    public void Delete(int key)
-    {
-        Node p = Search(key);
-        if (p == null)
-        {
-            System.out.println("there is no such a key.");
-        }
-        if (p != null)
-        {
-            if (p != header && p != tail)
-            {
-                p.Blink.Flink = p.Flink;
-                p.Flink.Blink = p.Blink;
-            };
-            if (p == header && p == tail)
-            {
-                header = null;
-                tail = null;
-            };
-            if (p == header && p != tail)
-            {
-                header = header.Flink;
-                header.Blink = null;
-            };
-            if (p != header && p == tail)
-            {
-                p.Blink.Flink = null;
-                tail = p.Blink;
-            }
-        }
-    }
     public void PrintList()
     {
         Node current = header;
