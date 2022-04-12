@@ -1,135 +1,89 @@
 import java.util.*;
-//PROFESSOR WANTS US TO USE THE LINKEDLIST WE USED IN CLASS NOT THE THE BUILT IN LINKEDLIST CLASS SO I NEED TO REWORK THIS
+
 public class AStack  //LStack
 {
-    private LinkedList<String> arr;
-    private int top;
-    private int size;
+    private LinkedList arr;
 
-    public AStack(int Size)// public LStack()
+    public AStack()// public LStack()
     {
-        arr = new LinkedList<String>();
-        size = Size;
-        top = -1;
+        arr = new LinkedList();
     }
 
-
-    public boolean Empty()
-    {
-        return top == -1;
+    public void Push(char x) {
+        arr.Append(x);
     }
 
-    public boolean Full()
-    {
-        return top == size - 1;
+    public char Pop() {
+        return arr.Remove().item;
     }
 
-    public void Push(String x)
-    {
-        if (Full() == false)
-        {
-            top = top + 1;
-            arr.add(x);
-        }
-        else
-        {
-            System.out.println("The stack is full!");
-        }
+    public void Print() {
+        arr.PrintList();
     }
 
-    public String Pop()
-    {
-        if (Empty() == false)
-        {
-            String x = arr.remove(top);
-            top = top - 1;
-            return x;
+    public boolean isPalindrome() {
+        Node node = arr.header;
+        String palindromeCheck = String.valueOf(node.item);
+        while (!(node.link == null)) {
+            node = node.link;
+            palindromeCheck = palindromeCheck + node.item;
         }
-        else
-        {
-            System.out.println("The stack is empty!");
-            return null;
-        }
-    }
-
-    public void Print()
-    {
-        if (top == -1)
-        {
-            System.out.println("The stack is empty!");
-        }
-        else
-        {
-            for (int i = top; i >=0; i--)
-            {
-                System.out.println(arr.get(i));
-            }
-        }
-    }
-    
-    public boolean palindromeCheck(String string){
         int index = 0;
-        int stringLength = string.length()-1;
-        while(index<stringLength) {
-            if(string.charAt(index) != string.charAt(stringLength)){
+        int stringLength = palindromeCheck.length() - 1;
+        while (index < stringLength) {
+            if (palindromeCheck.charAt(index) != palindromeCheck.charAt(stringLength)) {
                 return false;
             }
-        index++;
-        stringLength--;
+            index++;
+            stringLength--;
         }
         return true;
+
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         int num, flag;
-        String p;
-        AStack arrStack = new AStack(5);
-        Random rnd = new Random(100);
-        for (int i = 0; i <= 4; i++)
-        {
-            num = rnd.nextInt(101);
-            arrStack.Push(Integer.toString(num));
-        }
-
+        char p;
+        AStack arrStack = new AStack();
+        arrStack.Push('r');
+        arrStack.Push('a');
+        arrStack.Push('c');
+        arrStack.Push('e');
+        arrStack.Push('c');
+        arrStack.Push('a');
+        arrStack.Push('r');
+        System.out.println("List of chars added");
         arrStack.Print();
-
-        System.out.println("Enter 1 to pop, 2 to push, 3 to exit, 4 for palindrome check");
+        if (arrStack.isPalindrome() == true) {
+            System.out.println(" \nis a palindrome");
+        } else {
+            System.out.println("\nnot a palindrome");
+        }
+        System.out.println("\nPoping first char");
+        arrStack.Pop();
+        arrStack.Print();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nEnter 1 to pop, 2 to push, 3 to exit");
         flag = Integer.parseInt(new Scanner(System.in).nextLine());
-        while (flag != 3)
-        {
-            if (flag == 1)
-            {
+        while (flag != 3) {
+            if (flag == 1) {
                 p = arrStack.Pop();
                 System.out.printf("the item poped out is: %1s" + "\r\n", p);
                 System.out.println("The items in the Stack  after poping are:");
                 arrStack.Print();
-            }
-            else
-            {
-                if (flag == 2)
-                {
-                    System.out.println("Enter characters to push it into the Stack:");
-                    arrStack.Push(new Scanner(System.in).nextLine());
+            } else {
+                if (flag == 2) {
+                    System.out.println("Enter an char to push it into the Stack:");
+                    p = sc.next().charAt(0);
+                    arrStack.Push(p);
                     System.out.println("The items in the Stack  after pushing are:");
                     arrStack.Print();
 
                 }
-                if(flag == 4)
-                {
-                    System.out.println("Enter a string of characters to see if its a palindrome");
-                    if(arrStack.palindromeCheck(new Scanner(System.in).nextLine())){
-                        System.out.println("the word is a palindrome");
-                    }
-                    else{
-                        System.out.println("Not a palindrome");
-                    }
-                }
             }
-            System.out.println("Enter 1 to pop, 2 to push, 3 to exit, 4 for palindrome check");
+            System.out.println("\nEnter 1 to pop, 2 to push, 3 to exit");
             flag = Integer.parseInt(new Scanner(System.in).nextLine());
         }
         System.out.println("End of testing. Goodbye!");
     }
 }
-
