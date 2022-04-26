@@ -14,14 +14,16 @@ public class Vertex {
 
     }
 
-    public void AddVertex(Vertex vertexToAdd) {
+    public void addVertex(Vertex vertexToAdd) {
         vList.add(vertexToAdd);
     }
 
     public void printAdjacentList() {
-        vList.stream().forEach(s -> System.out.println("ID:" + s.ID + " Name:" + s.name));
+        vList.stream().forEach(s -> System.out.println("{ID: " + s.ID + " Name: " + s.name + "}"));
     }
 
-
+    public String toString() {
+        return "{ID: " + ID + " Name: " + name + "}";
+    }
 
 }
