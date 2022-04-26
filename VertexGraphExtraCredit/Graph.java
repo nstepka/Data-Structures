@@ -4,16 +4,16 @@ public class Graph {
     ArrayList<Vertex> gList;
 
     public Graph() {
-        gList = new ArrayList<Vertex>();
+        this.gList = new ArrayList<Vertex>();
     }
 
-    public void findNeighbors() {
+    public void findNeighbors(Vertex v) {
 
         for (int i = 0; i < gList.size(); i++) {
-            Vertex v = gList.get(i);
-            System.out.println(v.name + "=>");
-            for (Vertex x : v.vList) {
-                System.out.println(v.vList.get(x.ID) + "=>");
+            v = gList.get(i);
+            System.out.print(v.name + "=>");
+            for (int x = 0; x< v.vList.size(); x++) {
+                System.out.print(v.vList.get(x).name + "=>");
             }
 
             System.out.println("null");
@@ -21,8 +21,18 @@ public class Graph {
 
     }
 
-    public void printAdjacentList(Vertex v){
-        v.printAdjacentList();
+    public void printAdjacentList(){
+        System.out.println("Adjacent List");
+        System.out.println("--------------------------");
+        for (int i = 0; i < gList.size(); i++) {
+            Vertex vPrint = gList.get(i);
+            System.out.print(vPrint.name + " => ");
+            for (int x = 0; x< vPrint.vList.size(); x++) {
+                System.out.print(vPrint.vList.get(x).name + " => ");
+            }
+
+            System.out.println("null");
+        }
     }
 
     public Vertex search(int id){
